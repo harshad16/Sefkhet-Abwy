@@ -168,6 +168,7 @@ def notify_channel(kind: str, message: str, thread_key: str, url: str) -> None:
     elif (kind.upper() == "MERGED_PULL_REQUEST") or (kind.upper() == "PLAIN"):
         response = chat.spaces().messages().create(parent=SPACE, body={"text": message}, threadKey=thread_key)
     elif kind.upper() == "PROMETHEUS_ALERT":
+        SPACE = THOTH_DEVOPS_SPACE
         response = (
             chat.spaces()
             .messages()
